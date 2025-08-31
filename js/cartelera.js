@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const obras = document.querySelectorAll(".obra-card");
   const alertContainer = document.getElementById("alert-container");
 
-  // 📅 Calendarios dinámicos
   document.querySelectorAll(".mini-calendario").forEach(cal => {
     const fechaEvento = new Date(cal.dataset.fechas);
     const dia = fechaEvento.getDate();
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 🔍 Función de filtrado
   function filtrar() {
     let found = false;
 
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const matchUbicacion = !ubicacion.value || card.dataset.ubicacion === ubicacion.value;
 
       const match = matchGenero && matchFecha && matchUbicacion;
-      card.style.display = match ? "" : "none"; // Correcto para Grid
+      card.style.display = match ? "" : "none"; 
 
 
 
@@ -38,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (match) found = true;
     });
 
-    // 📢 Mostrar u ocultar alert
     if (!found) {
       alertContainer.innerHTML = `
         <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
@@ -51,14 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 🔗 Eventos de filtrado
   [genero, fecha, ubicacion].forEach(el => {
     if(el) el.addEventListener("change", filtrar);
   });
 
-  filtrar(); // ejecutar filtrado inicial
+  filtrar(); 
 
-  // 🎭 Modal dinámico
   const modalTitle = document.getElementById("modal-title");
   const modalDesc = document.getElementById("modal-desc");
   const modalImg = document.getElementById("modal-img");

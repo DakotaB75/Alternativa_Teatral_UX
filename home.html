@@ -213,6 +213,16 @@ a:hover, button:hover {
 }
 
 
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a:hover, button:hover {
+    cursor: none;
+  }
+}
+
+
 
 html {
       scroll-behavior: smooth;
@@ -1254,7 +1264,7 @@ function renderComentarios() {
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
   if (!isTouchDevice) {
-    
+
     const cursor = document.createElement('div');
     cursor.id = 'cursor';
     document.body.appendChild(cursor);
