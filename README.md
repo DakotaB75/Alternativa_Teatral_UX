@@ -1,7 +1,9 @@
 # Proyecto UX – Alternativa Teatral – Mobile First
 
 **Desarrollador:** Dakota B.  
-**Nivel:** Semi Senior – Desarrollo avanzado en UX  
+**Nivel:** Semi Senior – Desarrollo avanzado en UX 
+
+🌐 **Ver proyecto en vivo:** [Alternativa Teatral UX](https://dakotab75.github.io/Alternativa_Teatral_UX/home.html)
 
 ---
 
