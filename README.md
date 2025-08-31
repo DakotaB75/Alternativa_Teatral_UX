@@ -48,3 +48,5 @@ Gracias por su colaboración al proyecto **UX Research** 💜
 [Reel UX Research](https://www.instagram.com/reel/DLvpty8JyJ3/?igsh=NHV0OXJjMDh6NXdi)  
 
 #UXResearch #TrabajoEnEquipo #MujerEnTech #ProyectoIT #CrecimientoProfesional #InvestigacionUX
+
+![Inicio](imagenes_repo/1.png)
