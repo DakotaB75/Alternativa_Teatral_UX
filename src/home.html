@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cartelera teatral, talleres y comunidad UX. Descubrí obras, inscribite en cursos y conectá con el teatro digital.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Dakota Bazan">
+
+
+  <meta property="og:title" content="Alternativa Teatral UX - Obras, Talleres y Comunidad">
+  <meta property="og:description" content="Explorá la cartelera teatral, talleres y la comunidad UX. Tu espacio de creatividad y experiencia digital.">
+  <meta property="og:image" content="https://tusitio.com/img/cartelera.png">
+  <meta property="og:url" content="https://tusitio.com/home.html">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alternativa Teatral UX - Obras, Talleres y Comunidad">
+  <meta name="twitter:description" content="Explorá la cartelera teatral, talleres y comunidad UX.">
+  <meta name="twitter:image" content="https://tusitio.com/img/cartelera.png">
+
+
+  <title>Alternativa Teatral UX</title>
+  
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="canonical" href="https://tusitio.com/home.html">
+  <link rel="icon" href="https://tusitio.com/img/milogoo.png" type="image/png">
+  <link href="css/cartelera.css" rel="stylesheet">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Alternativa Teatral UX",
+  "url": "https://tusitio.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://tusitio.com/home.html?buscar={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+</head>
+<style>
+.carousel-3d {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      perspective: 1000px;
+      gap: 30px;
+      margin: 0 auto;
+      position: relative;
+      transition: transform 0.5s ease;
+}
+.card-3d {
+      border-radius: 10px;
+      width: 250px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s, z-index 0.5s, background 0.5s;
+      position: relative;
+      cursor: pointer;
+      background: #000; 
+}
+
+.card-3d img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+}
+
+.card-3d h5 {
+      margin: 10px 0;
+      font-size: 1rem;
+      color: #fff; 
+}
+
+
+
+
+.reflection {
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent); 
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      border-radius: 0 0 10px 10px;
+      transition: background 0.5s;
+}
+
+    .card-left { transform: rotateY(20deg) scale(0.9) translateZ(-50px); z-index: 1; }
+    .card-center { transform: rotateY(0deg) scale(1.1) translateZ(50px); z-index: 3; }
+    .card-right { transform: rotateY(-20deg) scale(0.9) translateZ(-50px); z-index: 1; }
+    .card-3d:hover { transform: scale(1.15) translateZ(50px) !important; z-index: 4; }
+
+
+
+
+body.dark-mode .card-3d {
+      background: #fff;
+}
+body.dark-mode .card-3d h5 {
+      color: #111; 
+}
+body.dark-mode .reflection {
+      background: linear-gradient(to top, rgba(255,255,255,0.3), transparent); /* Dark mode: reflejo blanco */
+}
+@media (max-width: 768px) { .carousel-3d { gap: 15px; } .card-3d { width: 180px; } .card-center { scale: 1; } }
+@media (max-width: 576px) { 
+      .carousel-3d { flex-direction: column; align-items: center; } 
+      .card-left, .card-right { transform: scale(0.85) rotateY(0deg) translateZ(0); z-index: 1; margin-bottom: 20px; }
+      .card-center { transform: scale(1) translateZ(0); z-index: 2; margin-bottom: 20px; }
+}
+
+
+
+
+.workshop-card {
+      border-radius: 10px;
+      background: #000; 
+      color: #fff;    
+      transform-style: preserve-3d;
+      transition: transform 0.5s, z-index 0.5s, background 0.5s;
+      position: relative;
+      cursor: pointer;
+}
+.workshop-card img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+}
+.workshop-card h5 {
+      margin: 10px 0;
+      font-size: 1.1rem;
+}
+.reflection-workshop {
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      border-radius: 0 0 10px 10px;
+      transition: background 0.5s;
+}
+.workshop-card:hover {
+      transform: scale(1.05) translateZ(20px);
+      z-index: 2;
+}
+
+
+
+
+body.dark-mode .workshop-card {
+      background: #fff; 
+      color: #111;     
+}
+body.dark-mode .reflection-workshop {
+      background: linear-gradient(to top, rgba(255,255,255,0.3), transparent);
+}
+@media (max-width: 768px) {
+  .workshop-card {
+        margin: 0 auto;
+  }
+}
+
+
+
+
+body {
+      cursor: none;
+}
+#cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-color: #fe9700;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      box-shadow: 0 0 8px #fe9700, 0 0 12px #fe9700, 0 0 18px #fe9700;
+      transition: transform 0.05s linear, width 0.15s ease, height 0.15s ease, box-shadow 0.2s ease;
+}
+#cursor-trail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      pointer-events: none;
+      background-color: rgba(254, 151, 0, 0.2);
+      box-shadow: 0 0 15px rgba(254, 151, 0, 0.3), 0 0 25px rgba(254, 151, 0, 0.2), 0 0 35px rgba(254, 151, 0, 0.1);
+      transform: translate(-50%, -50%);
+      transition: top 0.05s linear, left 0.05s linear;
+      z-index: 9998;
+}
+a:hover, button:hover {
+      cursor: none;
+}
+
+#cursor.hovered {
+      width: 16px;
+      height: 16px;
+      box-shadow: 0 0 15px #fe9700, 0 0 25px #fe9700, 0 0 35px #fe9700, 0 0 50px #fe9700;
+}
+
+
+
+html {
+      scroll-behavior: smooth;
+}
+.cartelera-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 20px;
+      justify-items: center;
+      margin: 0 auto;
+}
+@media (max-width: 992px) {
+  .cartelera-grid {
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .cartelera-grid {
+        grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+body.light-mode .modal-theme {
+      background: #111;
+      color: #fff;     
+}
+body.dark-mode .modal-theme {
+      background: #fff; 
+      color: #111;      
+}
+body.light-mode .modal-theme .btn-close {
+      filter: invert(1); 
+}
+body.dark-mode .modal-theme .btn-close {
+      filter: invert(0); 
+}
+
+
+
+
+@keyframes zoomInFast {
+  from {
+        transform: scale(0.7);
+        opacity: 0;
+  }
+  to {
+        transform: scale(1);
+        opacity: 1;
+  }
+}
+.modal.zoom .modal-dialog {
+      animation: zoomInFast 0.25s ease-out; 
+}
+
+
+
+
+.star {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #ccc;
+      transition: transform 0.2s ease, color 0.3s ease;
+    }
+    .star:hover {
+      transform: scale(1.2);
+      color: #fe9700;
+    }
+    .star.selected {
+      color: #fe9700;
+    }
+
+
+
+
+.inscriptos-container {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .comentario-card {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .comentario-card p {
+      font-style: italic;
+      margin: 0;
+    }
+    .list-group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .trash-icon {
+      color: #dc3545;
+      cursor: pointer;
+    }
+
+
+</style>
+<body class="light-mode">
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+
+  <nav class="navbar navbar-expand-lg shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img id="navbarLogo" src="img/Lobby22.png" alt="Inicio" class="img-fluid">
+      </a>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="home.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carteleraseccionnavbar">Cartelera</a></li>
+          <li class="nav-item"><a class="nav-link" href="#talleresseccionnavbar">Talleres</a></li>
+          <li class="nav-item"><a class="nav-link" href="#comunidadseccionnavbar">Comunidad</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contactoseccionnavbar">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#seccioncomunidadnavbar">Sobre Nosotros</a></li>
+        </ul>
+
+
+        <button id="musicButton" class="btn btn-outline-secondary me-2">
+          <i id="musicIcon" class="bi bi-play-fill"></i>
+        </button>
+
+
+        <button id="modeToggle" class="btn btn-outline-secondary">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+
+
+        <audio id="audioRelax" src="sounds/usuariorelax.mp3"></audio>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero text-center d-flex align-items-center justify-content-center py-5">
+    <div class="position-relative" style="width: 90%; max-width: 1200px; height: 420px; overflow: hidden; border-radius: 16px;">
+
+
+      <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="video/Teclab.mp4" type="video/mp4">
+        Tu navegador no soporta video en HTML5.
+      </video>
+
+
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 0;"></div>
+      <div class="d-flex flex-column justify-content-center align-items-center h-100 position-relative" style="z-index: 1; color: white;">
+        <h1 id="greeting" style="font-size: 2rem; font-weight: bold;">
+          Buenas tardes ☕
+        </h1>
+        <p id="heroQuote" style="font-size: 1.2rem; margin-top: 0.5rem;">
+          Tu pausa perfecta: descubre algo nuevo.
+        </p>
+        <a href="#carteleraseccionnavbar" class="btn btn-primary mt-3">Explorar obras</a>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+  <section id="cartelera" class="py-5 container-lg text-center">
+    <h2 class="mb-5">Cartelera Destacada</h2>
+    <div class="carousel-3d">
+      <div class="card-3d card-left">
+        <img src="img/cartelera.png" alt="Obra 1">
+        <div class="reflection"></div>
+        <h5>Una Familia de Locos</h5>
+      </div>
+
+
+      <div class="card-3d card-center">
+        <img src="img/cartelera2.png" alt="Obra 2">
+        <div class="reflection"></div>
+        <h5>La Mentira</h5>
+      </div>
+
+
+      <div class="card-3d card-right">
+        <img src="img/cartelera3.png" alt="Obra 3">
+        <div class="reflection"></div>
+        <h5>Un Plan Perfecto</h5>
+      </div>
+
+    </div>
+  </section>
+  <br>
+
+
+
+
+<section class="py-5 container">
+  <h2 class="text-center mb-4">Talleres Próximos</h2>
+  <div class="row justify-content-center g-3">
+
+
+    
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card workshop-card p-2 text-center">
+        <img src="img/taller1.png" class="card-img-top" alt="Taller 1">
+        <div class="card-body p-2">
+          <h5 class="card-title">Escuela de Teatro</h5>
+          <p class="card-text">Potenciá tu creatividad, comunicación y trabajo en equipo a través del teatro. Aprendé a interpretar personajes, usar la voz y el gesto, y valorar la expresión artística en espectáculos colectivos.</p>
+        </div>
+        <div class="reflection-workshop"></div>
+      </div>
+    </div>
+
+
+
+    <br>
+
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card workshop-card p-2 text-center">
+        <img src="img/taller2.png" class="card-img-top" alt="Taller 2">
+        <div class="card-body p-2">
+          <h5 class="card-title">Municipal de Adultos Mayores</h5>
+          <p class="card-text">
+            <p class="card-text">Fortalecé tu capacidad de expresión, colaboración y observación a través del teatro. Aprendé a transmitir emociones, manejar tu presencia escénica y comunicar ideas ante distintos públicos y contextos.</p>
+          </div>
+          <div class="reflection-workshop"></div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+  <br>
+
+
+
+
+  <section class="py-5 container" id="comunidadseccionnavbar">
+    <h2 class="text-center mb-4">Comunidad - UX Research</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+
+
+      <div class="carousel-inner text-center">
+        <div class="carousel-item active">
+          <p class="testimonial">Buena experiencia, la página es muy atractiva y un ranking de obras sería un plus increíble – Braian Peralta</p>
+        </div>
+        <div class="carousel-item">
+          <p class="testimonial">Me gustó mucho la navegación, es fácil encontrar lo que busco y todo se ve muy claro – Fernando Velazquez</p>
+        </div>
+        <div class="carousel-item">
+          <p class="testimonial">La plataforma es sencilla y cómoda, con títulos y categorías que invitan a explorar más – Rodrigo Reston</p>
+        </div>
+        <div class="carousel-item">
+          <p class="testimonial">Explorar las obras es muy fácil y agradable, las categorías ayudan a encontrar rápidamente lo que me interesa – Mariano Pineda</p>
+        </div>
+        <div class="carousel-item">
+          <p class="testimonial">La experiencia es excelente, los contenidos son atractivos y los filtros hacen la búsqueda más rápida y divertida – Elias Escalante</p>
+        </div>
+      </div>
+
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+
+    </div>
+  </section>
+
+  <br>
+
+
+
+
+  <div class="container my-4" id="carteleraseccionnavbar">
+    <h2 class="text-center mb-4">Cartelera de Obras</h2>
+    
+    
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <select id="filtro-genero" class="form-select filtro-select">
+          <option value="">Todos los géneros</option>
+          <option value="drama">Drama</option>
+          <option value="comedia">Comedia</option>
+          <option value="musical">Musical</option>
+        </select>
+      </div>
+
+
+      <div class="col-md-4">
+        <select id="filtro-fecha" class="form-select filtro-select">
+          <option value="">Todas las fechas</option>
+          <option value="2025-08">Agosto 2025</option>
+          <option value="2025-09">Septiembre 2025</option>
+        </select>
+      </div>
+
+
+      <div class="col-md-4">
+        <select id="filtro-ubicacion" class="form-select filtro-select">
+          <option value="">Todas las ubicaciones</option>
+          <option value="teatro1">Teatro 1</option>
+          <option value="teatro2">Teatro 2</option>
+        </select>
+      </div>
+
+
+    </div>
+    <br>
+
+
+    <div id="alert-container" class="mt-2"></div>
+
+
+    <div class="cartelera-grid" id="cartelera-lista">
+
+
+      <div class="obra-card card-3d" data-genero="drama" data-fecha="2025-08-15" data-ubicacion="teatro1">
+        <div class="card card-obra h-100 shadow-sm border-0 rounded-4 card-light-dark">
+          <img src="img/box1.png" class="card-img-top rounded-top-4" alt="La Tragedia">
+          <div class="card-body text-center p-3">
+            <h5 class="card-title mb-2">Ecos de la Verdad</h5>
+            <p class="card-text mb-3 small">Cada decisión deja huellas imborrables</p>
+            <button id="btn-ver-mas-1" class="btn btn-outline-primary ver-mas" data-bs-toggle="modal" data-bs-target="#obraModal" data-title="Ecos de la Verdad" data-desc="Secretos y emociones reprimidas salen a la luz en una trama que atrapa y conmueve. Cada decisión, cada palabra, revela el peso del corazón y las consecuencias de enfrentar la verdad." data-img="img/box1.png" id="btn-ver-mas-1">Ver más</button>
+          </div>
+      </div>
+    </div>
+
+
+
+    <div class="obra-card card-3d" data-genero="comedia" data-fecha="2025-09-02" data-ubicacion="teatro2">
+      <div class="card card-obra h-100 shadow-sm border-0 rounded-4 card-light-dark">
+        <img src="img/box4.png" class="card-img-top rounded-top-4" alt="Risas sin fin">
+        <div class="card-body text-center p-3">
+          <h5 class="card-title mb-2">Coreografía de la Noche</h5>
+          <p class="card-text mb-3 small">Cada movimiento ilumina la oscuridad.</p>
+          <button id="btn-ver-mas-2" class="btn btn-outline-primary ver-mas" data-bs-toggle="modal" data-bs-target="#obraModal" data-title="Coreografía de la Noche" data-desc="La música acompaña cada coreografía, intensificando la tensión y la belleza de cada instante. Momentos de fuerza y determinación se mezclan con instantes de gracia y delicadeza, creando un espectáculo hipnótico." data-img="img/box4.png">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="obra-card card-3d" data-genero="musical" data-fecha="2025-08-20" data-ubicacion="teatro1">
+      <div class="card card-obra h-100 shadow-sm border-0 rounded-4 card-light-dark">
+        <img src="img/box3.png" class="card-img-top rounded-top-4" alt="Melodías Eternas">
+        <div class="card-body text-center p-3">
+          <h5 class="card-title mb-2">Bajo la Luna Azul</h5>
+          <p class="card-text mb-3 small">Cada canción despierta sueños y emociones</p>
+          <button id="btn-ver-mas-3" class="btn btn-outline-primary ver-mas" data-bs-toggle="modal" data-bs-target="#obraModal" data-title="Bajo la Luna Azul" data-desc="Un musical que hará vibrar tu corazón." data-img="img/box3.png">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="obra-card card-3d" data-genero="drama" data-fecha="2025-09-10" data-ubicacion="teatro2">
+      <div class="card card-obra h-100 shadow-sm border-0 rounded-4 card-light-dark">
+        <img src="img/box2.png" class="card-img-top rounded-top-4" alt="Sombras del Pasado">
+        <div class="card-body text-center p-3">
+          <h5 class="card-title mb-2">Susurros del Alba</h5>
+          <p class="card-text mb-3 small">Emociones delicadas que despiertan el corazón.</p>
+          <button id="btn-ver-mas-4" class="btn btn-outline-primary ver-mas" data-bs-toggle="modal" data-bs-target="#obraModal" data-title="Susurros del Alba" data-desc="Cuando la noche se despide, los secretos del corazón hablan. Una joven enfrenta sueños y desafíos, entre esperanza y desilusión, en una historia que conmueve y refleja la fuerza de seguir adelante." data-img="img/box2.png">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="obra-card card-3d" data-genero="comedia" data-fecha="2025-08-28" data-ubicacion="teatro1">
+      <div class="card card-obra h-100 shadow-sm border-0 rounded-4 card-light-dark">
+        <img src="img/box5.png" class="card-img-top rounded-top-4" alt="La Oficina Loca">
+        <div class="card-body text-center p-3">
+          <h5 class="card-title mb-2">Entre Estrellas y Hechizos</h5>
+          <p class="card-text mb-3 small">Cada estrella es testigo de confusiones divertidas.</p>
+          <button id="btn-ver-mas-5" class="btn btn-outline-primary ver-mas" data-bs-toggle="modal" data-bs-target="#obraModal" data-title="Entre Estrellas y Hechizos" data-desc="Cada intento de magia termina en caos cómico, mientras las estrellas observan, parpadeando con complicidad. Aventuras disparatadas, malentendidos encantados y travesuras inesperadas llenan la escena de risas constantes." data-img="img/box5.png">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="obra-card card-3d" data-genero="musical" data-fecha="2025-09-18" data-ubicacion="teatro2">
+      <div class="card card-obra h-100 shadow-sm border-0 rounded-4 card-light-dark">
+        <img src="img/box6.png" class="card-img-top rounded-top-4" alt="Notas de Libertad">
+        <div class="card-body text-center p-3">
+          <h5 class="card-title mb-2">Leonidas</h5>
+          <p class="card-text mb-3 small">Cada escena revela un líder enfrentando su destino.</p>
+          <button id="btn-ver-mas-6" class="btn btn-outline-primary ver-mas" data-bs-toggle="modal" data-bs-target="#obraModal" data-title="Leonidas" data-desc="A través de canciones vibrantes y coreografías impactantes, seguimos la historia de un líder valiente que enfrenta desafíos y decisiones que cambiarán su destino" data-img="img/box6.png">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+
+<div class="modal fade zoom" id="obraModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content card-light-dark modal-theme">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Título</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modal-img" src="" class="img-fluid rounded mb-3" alt="obra">
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+<br>
+
+
+
+<div class="container my-5" id="talleresseccionnavbar">
+  <h2 class="text-center mb-4">Talleres Disponibles</h2>
+  <div class="row g-4">
+    <div class="col-12 col-md-4">
+      <div class="card-obra workshop-card card h-100 shadow-sm border-0 rounded-4">
+        <img src="img/corporal1.png" class="card-img-top img-fluid rounded-top-4" alt="Taller UX Writing">
+        <div class="card-body">
+          <h5 class="card-title">Taller de Expresión Corporal</h5>
+          <p class="card-text">Objetivo: ayudar a los participantes a usar el cuerpo como herramienta expresiva.</p>
+          <button class="btn btn-outline-primary w-100 inscribirse-btn" data-taller="Taller de Expresión Corporal" data-bs-toggle="modal" data-bs-target="#modalInscripcion"> Inscribirse </button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-12 col-md-4">
+      <div class="card-obra workshop-card card h-100 shadow-sm border-0 rounded-4">
+        <img src="img/creativo1.png" class="card-img-top img-fluid rounded-top-4" alt="Taller Prototipado">
+        <div class="card-body">
+          <h5 class="card-title">Taller de Dramaturgia Creativa</h5>
+          <p class="card-text">Objetivo: aprender a escribir pequeñas escenas y diálogos para teatro.</p>
+          <button class="btn  btn-outline-primary w-100 inscribirse-btn" data-taller="Taller de Dramaturgia Creativa" data-bs-toggle="modal" data-bs-target="#modalInscripcion"> Inscribirse </button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-12 col-md-4">
+      <div class="card-obra workshop-card card h-100 shadow-sm border-0 rounded-4">
+        <img src="img/diccion2.png" class="card-img-top img-fluid rounded-top-4" alt="Taller Usabilidad">
+        <div class="card-body">
+          <h5 class="card-title">Taller de Voz y Dicción para Escena</h5>
+          <p class="card-text">Objetivo: fortalecer la voz y mejorar la claridad al hablar en público.</p>
+          <button class="btn btn-outline-primary w-100 inscribirse-btn" data-taller="Taller de Voz y Dicción para Escena" data-bs-toggle="modal" data-bs-target="#modalInscripcion"> Inscribirse </button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="modalInscripcion" tabindex="-1" aria-labelledby="modalInscripcionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="card-obra modal-content rounded-4 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title">Formulario de Inscripción</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form id="formInscripcion">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre">
+            <div class="invalid-feedback">Por favor, ingrese su nombre.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="mail">
+            <div class="invalid-feedback">Ingrese un email válido.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Interés</label>
+            <input type="text" class="form-control" id="interes" readonly>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success w-100">Enviar Inscripción</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="card-obra container inscriptos-container">
+  <h4 class="mb-3">Inscriptos</h4>
+  <ul id="listaInscriptos" class="list-group mb-4"></ul>
+  <h4 class="mb-3">Comentarios</h4>
+  <div id="alertaComentario" class="alert alert-danger d-none" role="alert">
+    ¡Ey queremos escucharte! Regístrate, califica con estrellas y cuéntanos tu experiencia <i class="bi bi-x-circle-fill"></i>
+  </div>
+
+  <div class="container">
+    <div id="alertaRegistro" class="alert alert-success d-none mt-3" role="alert">
+      Te registraste correctamente <i class="bi bi-check-circle-fill"></i>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">¡Que esperas para escribir el tuyo!</label>
+    <textarea class="form-control" id="comentarioTexto" rows="3"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+
+  <button id="btnPublicar" class="btn btn-dark w-100 mb-3">Publicar</button>
+
+  <div id="listaComentarios"></div>
+</div>
+
+<audio id="sonidoNotificacion" src="sounds/Notification_taller.mp3" preload="auto"></audio>
+<br>
+<br>
+
+
+
+
+<div class="container my-5" id="contactoseccionnavbar">
+  <h2 class="text-center mb-4">Formulario de Google</h2>
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-8 card-obra p-4 rounded shadow-sm">
+      <div class="text-center">
+        <p class="mb-4 card-text">
+          La seguridad del usuario es un aspecto clave en la usabilidad, ya que aumenta la confianza y reduce la fricción al momento de interactuar. 
+          Al garantizar que tus datos están protegidos y que solo Dakota los recibe, se refuerza la transparencia y se responde a una necesidad crítica
+          detectada en pruebas de usabilidad: la percepción de seguridad.
+        </p>
+
+        <a href="https://forms.gle/TeqY5X3J2HNzjew18" target="_blank" class="btn btn-outline-primary mb-3">
+          <i class="bi bi-send-fill"></i> Contactame
+        </a>
+
+      </div>
+      <div class="d-flex justify-content-start gap-3 fs-4 mt-2">
+        <a href="https://www.instagram.com/dakota.developer?igsh=MXhpNnAzZ3FteXNkaQ==" target="_blank" class="text-dark">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/dakota-bazan-a89a25312/" target="_blank" class="text-dark">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+<section class="d-flex flex-column align-items-center justify-content-center py-5 container" id="seccioncomunidadnavbar">
+
+
+  <h2 class="text-center mb-5">Sobre Nosotros</h2>
+  <br>
+  <div class="row align-items-center mb-5 justify-content-center">
+    <div class="col-12 col-md-4 text-center mb-3 mb-md-0"> 
+      <img src="img/dakotaperfil_logo.png" alt="Dakota Bazán" class="workshop-card img-fluid rounded-circle shadow-sm" style="width:140px; height:140px; object-fit:cover; margin-bottom:1rem;"> <!-- Foto más grande y margen -->
+    </div>
+
+    <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center text-center text-md-start">
+      <h1 class="mb-2 fw-bold scale-in-center" style="font-size: 25px; display: flex; align-items: center; gap: 8px;">
+        Dakota Bazan 
+        <img src="img/verificado.png" alt="Verified" style="width: 22px; height: 22px;"/>
+      </h1>
+      <p>Semi Senior Web Dev | UX • AWS • Git.</p>
+    </div>
+
+  </div>
+<br>
+
+
+
+<h4 class="text-center mb-3">Teclab Instituto Técnico Superior | Social Learning</h4>
+<br>
+<div class="row g-5 mb-5 justify-content-center text-center"> 
+    <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <img src="img/Coach_logo.png" alt="Participante 1" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Coach Caterina Murray</p>
+    </div>
+
+    <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <img src="img/siglologo.png" alt="Participante 2" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Universidad Siglo 21</p>
+    </div>
+
+    <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <img src="img/social_logo (1).png" alt="Participante 3" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Social Learning</p>
+    </div>
+
+    <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <img src="img/teclablogo.png" alt="Participante 4" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Instituto Teclab</p>
+    </div>
+
+  </div>
+  <br>
+
+
+
+  <h4 class="text-center mb-3">
+    Participantes del
+    <a href="https://github.com/DakotaB75/Teclab_Tecnicatura_Sup_Programacion_Tareas/blob/d02f06ba516fdea5c80f29fe70e9c6fca4e7c6fc/Teclab%20-%20Tecnicatura%20Sup.%20en%20Programacion/experiencia%20de%20usuarios%20-%20Tareas/EXP%20Usuario%20API%202%20-%20Teclab.pdf" target="_blank" style="text-decoration: underline; color: inherit;">
+      Trabajo
+    </a> 
+    Investigación UX - Alternativa Teatral
+  </h4>
+
+
+
+  <br>
+  <div class="row g-5 justify-content-center text-center">
+    <div class="col-6 col-md-2 d-flex flex-column align-items-center">
+      <img src="img/participante4_logo.png" alt="Participante 5" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Fernando Velazquez</p>
+    </div>
+
+    <div class="col-6 col-md-2 d-flex flex-column align-items-center">
+      <img src="img/participante5_logo.png" alt="Participante 6" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Rodrigo Reston</p>
+    </div>
+
+    <div class="col-6 col-md-2 d-flex flex-column align-items-center">
+      <img src="img/participante1_logo.png" alt="Participante 7" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Braian Peralta</p>
+    </div>
+
+    <div class="col-6 col-md-2 d-flex flex-column align-items-center">
+      <img src="img/participante2_logo.png" alt="Participante 8" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Mariano Pineda</p>
+    </div>
+
+    <div class="col-6 col-md-2 d-flex flex-column align-items-center">
+      <img src="img/participante3_logo.png" alt="Participante 9" class="img-fluid rounded-circle shadow-sm mb-2 workshop-card" style="width:80px; height:80px; object-fit:cover;">
+      <p class="mb-0 small">Elias Escalante</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<footer class="text-center py-3 mt-auto">
+  <p class="mb-0">© 2025 Alternativa Teatral UX – Mobile First – Dakota Developer</p>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/cartelera.js"></script>
+
+
+
+<script>
+
+  const cards = document.querySelectorAll('.card-3d');
+  let positions = ['card-left', 'card-center', 'card-right'];
+  function updatePositions() {
+
+    cards.forEach((card, i) => {
+      card.classList.remove('card-left','card-center','card-right');
+      card.classList.add(positions[i]);
+    });
+    positions.push(positions.shift());
+  }
+  setInterval(updatePositions, 3000); 
+
+
+  const toggleBtn = document.getElementById("modeToggle");
+  const body = document.body;
+  const navbarLogo = document.getElementById("navbarLogo");
+  const clickSound = new Audio("sounds/Click.mp3");
+
+
+
+  function applyTheme(theme) {
+  if(theme === "dark") {
+    body.classList.add("dark-mode");
+    body.classList.remove("light-mode");
+    toggleBtn.querySelector("i").classList.replace("bi-moon-fill","bi-sun-fill");
+    navbarLogo.src = "img/Lobby1.png";
+
+  } else {
+    body.classList.add("light-mode");
+    body.classList.remove("dark-mode");
+    toggleBtn.querySelector("i").classList.replace("bi-sun-fill","bi-moon-fill");
+    navbarLogo.src = "img/Lobby22.png";
+  }
+}
+
+
+  function updateCarteleraTheme(theme) {
+  const cards = document.querySelectorAll(".card-obra"); 
+  const selects = document.querySelectorAll(".filtro-select");
+
+  if(theme === "dark") { 
+    cards.forEach(card => {
+      card.style.background = "#fff";
+      card.style.color = "#111";
+    });
+
+    selects.forEach(sel => {
+      sel.style.background = "#fff";
+      sel.style.color = "#111";
+      sel.style.border = "1px solid #ccc";
+    });
+  } else {
+
+    cards.forEach(card => {
+      card.style.background = "#000";
+      card.style.color = "#fff";
+    });
+    selects.forEach(sel => {
+      sel.style.background = "#111";
+      sel.style.color = "#fff";
+      sel.style.border = "1px solid #333";
+    });
+  }
+}
+
+
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+    updateCarteleraTheme(savedTheme);
+    toggleBtn.addEventListener("click", () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
+      const newTheme = body.classList.contains("dark-mode") ? "light" : "dark";
+      applyTheme(newTheme);
+      updateCarteleraTheme(newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+
+
+
+    const greeting = document.getElementById("greeting");
+    const heroQuote = document.getElementById("heroQuote");
+    const hour = new Date().getHours();
+
+
+    if(hour < 12){
+      greeting.textContent = "Buenos días ☀️";
+      heroQuote.textContent = "Hoy, ¿qué te inspira explorar?";
+    } else if(hour < 19){
+      greeting.textContent = "Buenas tardes ☕";
+      heroQuote.textContent = "Tu pausa perfecta: descubre algo nuevo.";
+    } else {
+      greeting.textContent = "Buenas noches 🌙";
+      heroQuote.textContent = "Cierra el día con lo que más te interesa.";
+    }
+
+
+    const cursor = document.getElementById('cursor');
+    const trail = document.getElementById('cursor-trail');
+
+
+    document.addEventListener('mousemove', e => {
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+
+
+    setTimeout(() => {
+      trail.style.top = `${e.clientY}px`;
+      trail.style.left = `${e.clientX}px`;
+    }, 20);
+  });
+
+  
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  });
+
+
+
+  document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+
+        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 800; 
+        let start = null;
+
+
+        function animationScroll(currentTime) {
+          if (start === null) start = currentTime;
+          const timeElapsed = currentTime - start;
+          const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, run);
+
+          if (timeElapsed < duration) requestAnimationFrame(animationScroll);
+        }
+
+
+        function easeInOutQuad(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return c / 2 * t * t + b;
+          t--;
+          return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+        requestAnimationFrame(animationScroll);
+      });
+    });
+
+
+    function initVerMasSound(buttonId) {
+      const btn = document.getElementById(buttonId);
+      if(btn) {
+        btn.addEventListener("click", () => {
+          const sound = new Audio("sounds/Keycap.mp3"); 
+          sound.play();
+        });
+      }
+    }
+
+
+    ["btn-ver-mas-1", "btn-ver-mas-2", "btn-ver-mas-3", "btn-ver-mas-4", "btn-ver-mas-5", "btn-ver-mas-6"]
+    .forEach(id => initVerMasSound(id));
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("formInscripcion");
+      const nombre = document.getElementById("nombre");
+      const mail = document.getElementById("mail");
+      const interes = document.getElementById("interes");
+      const alertaRegistro = document.getElementById("alertaRegistro");
+      const listaInscriptos = document.getElementById("listaInscriptos");
+      const comentarioTexto = document.getElementById("comentarioTexto");
+      const listaComentarios = document.getElementById("listaComentarios");
+      const sonido = document.getElementById("sonidoNotificacion");
+      let estrellasSeleccionadas = 0;
+
+
+      const inscripciones = JSON.parse(localStorage.getItem("inscripciones")) || [];
+      const comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+
+      renderInscriptos();
+      renderComentarios();
+      document.querySelectorAll(".inscribirse-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      interes.value = btn.getAttribute("data-taller");
+    });
+  });
+
+
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let valido = true;
+
+    if (!nombre.value.trim()) { nombre.classList.add("is-invalid"); valido = false; }
+    else { nombre.classList.remove("is-invalid"); }
+
+    if (!mail.value.trim() || !mail.value.includes("@")) { mail.classList.add("is-invalid"); valido = false; }
+    else { mail.classList.remove("is-invalid"); }
+
+    if (valido) {
+      const inscripto = { nombre: nombre.value, mail: mail.value, interes: interes.value };
+      inscripciones.push(inscripto);
+      localStorage.setItem("inscripciones", JSON.stringify(inscripciones));
+      renderInscriptos();
+
+      alertaRegistro.classList.remove("d-none");
+      setTimeout(() => alertaRegistro.classList.add("d-none"), 3000);
+
+      form.reset();
+      const modal = bootstrap.Modal.getInstance(document.getElementById("modalInscripcion"));
+      modal.hide();
+    }
+  });
+
+
+
+
+  function renderInscriptos() {
+    listaInscriptos.innerHTML = "";
+    inscripciones.forEach((ins, index) => {
+      const li = document.createElement("li");
+      li.classList.add("list-group-item");
+      li.innerHTML = `
+        <span>${ins.nombre} – ${ins.interes}</span>
+        <i class="bi bi-trash3-fill trash-icon" data-index="${index}" data-tipo="inscripto"></i>
+      `;
+      listaInscriptos.appendChild(li);
+    });
+  }
+
+
+
+  document.querySelectorAll(".star").forEach(star => {
+    star.addEventListener("click", () => {
+      estrellasSeleccionadas = parseInt(star.getAttribute("data-value"));
+      document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
+      for (let i=0; i<estrellasSeleccionadas; i++) {
+        document.querySelectorAll(".star")[i].classList.add("selected");
+      }
+    });
+  });
+
+
+
+  const alertaComentario = document.getElementById("alertaComentario");
+
+document.getElementById("btnPublicar").addEventListener("click", () => {
+  const texto = comentarioTexto.value.trim();
+  if (!texto || estrellasSeleccionadas === 0 || inscripciones.length === 0) {
+    alertaComentario.classList.remove("d-none");
+    setTimeout(() => alertaComentario.classList.add("d-none"), 3000);
+    return;
+  }
+
+  alertaComentario.classList.add("d-none");
+
+  const usuario = inscripciones[inscripciones.length - 1].nombre;
+  comentarios.push({ usuario, texto, estrellas: estrellasSeleccionadas });
+  localStorage.setItem("comentarios", JSON.stringify(comentarios));
+  renderComentarios();
+
+  comentarioTexto.value = "";
+  estrellasSeleccionadas = 0;
+  document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
+  sonido.play();
+});
+
+
+function renderComentarios() {
+    listaComentarios.innerHTML = "";
+    comentarios.forEach((c, index) => {
+      const div = document.createElement("div");
+      div.classList.add("comentario-card");
+      div.innerHTML = `
+        <div class="d-flex justify-content-between">
+          <div>
+            <strong>${c.usuario}</strong><br>
+            ${"★".repeat(c.estrellas)}${"☆".repeat(5-c.estrellas)}<br>
+            <p>${c.texto}</p>
+          </div>
+          <i class="bi bi-trash3-fill trash-icon" data-index="${index}" data-tipo="comentario"></i>
+        </div>
+      `;
+      listaComentarios.appendChild(div);
+    });
+  }
+
+
+
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("trash-icon")) {
+      const index = e.target.getAttribute("data-index");
+      const tipo = e.target.getAttribute("data-tipo");
+
+      if (tipo === "inscripto") {
+        inscripciones.splice(index, 1);
+        localStorage.setItem("inscripciones", JSON.stringify(inscripciones));
+        renderInscriptos();
+      }
+      if (tipo === "comentario") {
+        comentarios.splice(index, 1);
+        localStorage.setItem("comentarios", JSON.stringify(comentarios));
+        renderComentarios();
+      }
+    }
+  });
+});
+
+
+  const musicButton = document.getElementById('musicButton');
+  const musicIcon = document.getElementById('musicIcon');
+  const audio = document.getElementById('audioRelax');
+
+  musicButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      musicIcon.classList.remove('bi-play-fill');
+      musicIcon.classList.add('bi-pause-fill');
+    } else {
+      audio.pause();
+      musicIcon.classList.remove('bi-pause-fill');
+      musicIcon.classList.add('bi-play-fill');
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    musicIcon.classList.remove('bi-pause-fill');
+    musicIcon.classList.add('bi-play-fill');
+  });
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+body.light-mode {
+  background: #FAF0E6;
+  color: #212529;
+}
+
+body.light-mode .navbar {
+  background: #DCCFC2;
+}
+
+body.light-mode .nav-link {
+  color: #212529 !important;
+}
+
+body.light-mode footer {
+  background: #DCCFC2;
+  color: #212529;
+}
+
+
+
+
+body.dark-mode {
+  background: #161d2d;
+  color: #f8f9fa;
+}
+
+body.dark-mode .navbar {
+  background: #1f2a3c;
+}
+
+body.dark-mode .nav-link {
+  color: #f8f9fa !important;
+}
+
+body.dark-mode footer {
+  background: #1f2a3c;
+  color: #f8f9fa;
+}
+
+
+
+
+.nav-link {
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+body.light-mode .nav-link:hover {
+  color: #161d2d !important;
+  border-bottom: 2px solid #161d2d;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #fe9700 !important;
+  border-bottom: 2px solid #fe9700;
+}
+
+
+
+
+.navbar-brand img {
+  max-height: 45px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f8f9fa;
+  color: #212529;
+}
+
+
+
+
+.hero h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-quote {
+  font-style: italic;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+
+
+
+.hero .btn-primary {
+  background-color: #161d2d;
+  border: none;
+}
+
+
+
+
+.neon-card {
+  border: 1px solid #161d2d;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(22,29,45,0.5), 0 0 20px rgba(22,29,45,0.3);
+  transition: transform 0.3s ease;
+}
+
+.neon-card:hover {
+  transform: translateY(-5px);
+}
+
+
+
+
+.workshop-card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.workshop-card:hover {
+  transform: translateY(-3px);
+}
+
+
+
+
+.testimonial {
+  font-style: italic;
+  color: #495057;
+  padding: 1rem 2rem;
+}
+
+
+
+
+.carousel .carousel-inner {
+  gap: 1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+
+
+
+@media(max-width:768px){
+  .hero h1 { font-size: 1.5rem; }
+  .hero-quote { font-size: 0.9rem; }
+}

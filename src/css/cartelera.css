@@ -1,0 +1,132 @@
+.tilt-obras {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+.tilt-obras.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.filtro-select {
+  transition: all 0.3s;
+}
+body.light-mode .filtro-select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+}
+body.dark-mode .filtro-select {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+
+
+.obra-card {
+  width: 100%;
+  max-width: 320px;
+  transition: all 0.3s ease;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+body.light-mode .obra-card {
+  background: #111;
+  color: #fff;
+}
+body.dark-mode .obra-card {
+  background: #fff;
+  color: #111;
+}
+
+
+
+.card-obra {
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.card-3d {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.card-3d:hover {
+  border-color: #fff; 
+  box-shadow: 0 0 12px #fff;
+}
+.card-3d.selected {
+  border-color: #fe9700 !important;
+  box-shadow: 0 0 16px #fe9700 !important;
+}
+
+
+
+.ver-mas { cursor: pointer; }
+.obra-card, .card-3d { cursor: default; }
+
+
+
+.mini-calendario {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.mini-calendario span {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #eee;
+  font-size: 0.8rem;
+}
+.mini-calendario span.activo {
+  background: #fe9700;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+.cartelera-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  justify-items: center; 
+  margin: 0 auto;
+}
+
+
+
+.obra-card {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  padding: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+
+
+@media (max-width: 992px) {
+  .cartelera-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 768px) {
+  .cartelera-grid {
+    grid-template-columns: 1fr; 
+    justify-items: center;
+  }
+  .obra-card {
+    max-width: 90%;
+  }
+}
+
+
