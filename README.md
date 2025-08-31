@@ -54,5 +54,5 @@ Gracias por su colaboración al proyecto **UX Research** 💜
 ![Inicio](imagenes_repo/2.png)
 ![Nosotros](imagenes_repo/1.png)
 ![SEO](imagenes_repo/3.png)
-![Auditorias_Aprobadas](imagenes_repo/4.png)
-![Informe_de_rendimiento](imagenes_repo/5.png)
+![Auditorias](imagenes_repo/4.png)
+![Informe](imagenes_repo/5.png)
