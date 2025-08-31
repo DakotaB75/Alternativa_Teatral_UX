@@ -7,46 +7,44 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Dakota Bazan">
 
-
   <meta property="og:title" content="Alternativa Teatral UX - Obras, Talleres y Comunidad">
   <meta property="og:description" content="Explorá la cartelera teatral, talleres y la comunidad UX. Tu espacio de creatividad y experiencia digital.">
-  <meta property="og:image" content="https://tusitio.com/img/cartelera.png">
-  <meta property="og:url" content="https://tusitio.com/home.html">
+  <meta property="og:image" content="https://dakotab75.github.io/Alternativa_Teatral_UX/img/cartelera.png">
+  <meta property="og:url" content="https://dakotab75.github.io/Alternativa_Teatral_UX/home.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alternativa Teatral UX - Obras, Talleres y Comunidad">
   <meta name="twitter:description" content="Explorá la cartelera teatral, talleres y comunidad UX.">
-  <meta name="twitter:image" content="https://tusitio.com/img/cartelera.png">
-
+  <meta name="twitter:image" content="https://dakotab75.github.io/Alternativa_Teatral_UX/img/cartelera.png">
 
   <title>Alternativa Teatral UX</title>
-  
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/home.css">
-  <link rel="canonical" href="https://tusitio.com/home.html">
-  <link rel="icon" href="https://tusitio.com/img/milogoo.png" type="image/png">
   <link href="css/cartelera.css" rel="stylesheet">
 
+  <link rel="icon" href="https://dakotab75.github.io/Alternativa_Teatral_UX/img/milogoo.png" type="image/png">
+
+  <link rel="canonical" href="https://dakotab75.github.io/Alternativa_Teatral_UX/home.html">
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Alternativa Teatral UX",
-  "url": "https://tusitio.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://tusitio.com/home.html?buscar={search_term_string}",
-    "query-input": "required name=search_term_string"
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Alternativa Teatral UX",
+    "url": "https://dakotab75.github.io/Alternativa_Teatral_UX/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://dakotab75.github.io/Alternativa_Teatral_UX/home.html?buscar={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
-}
-</script>
-
-
+  </script>
 </head>
+
 <style>
 .carousel-3d {
       display: flex;
@@ -1252,6 +1250,33 @@ function renderComentarios() {
     musicIcon.classList.remove('bi-pause-fill');
     musicIcon.classList.add('bi-play-fill');
   });
+
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (!isTouchDevice) {
+    
+    const cursor = document.createElement('div');
+    cursor.id = 'cursor';
+    document.body.appendChild(cursor);
+
+    const trail = document.createElement('div');
+    trail.id = 'cursor-trail';
+    document.body.appendChild(trail);
+
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      trail.style.left = e.clientX + 'px';
+      trail.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+
+    document.body.style.cursor = 'none';
+  }
   
 </script>
 </body>
